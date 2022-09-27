@@ -36,7 +36,7 @@ const NewQRForm = () => {
         })
     }
     return (
-        <form className='w-full md:w-1/2' onSubmit={handleSubmit}>
+        <form className='w-full md:w-1/2 flex flex-col gap-4' onSubmit={handleSubmit}>
             <Input
                 type='text'
                 placeholder='Enter the title'
