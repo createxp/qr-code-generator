@@ -1,11 +1,13 @@
 import type { NextPage } from "next";
+import toast from "react-hot-toast";
 
 const Home: NextPage = () => {
   return (
     <div>
-      <h1 className="font-bold text-4xl text-center text-red-500">
+      <h1 className="font-bold text-4xl text-center">
         Hello QR Code
       </h1>
+
     </div>
   );
 };
