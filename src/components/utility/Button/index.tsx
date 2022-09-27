@@ -39,7 +39,7 @@ const Button = ({
             }
             {
                 text && (
-                    <span className='text-white'>{text}</span>
+                    <span className='text-white whitespace-nowrap'>{text}</span>
                 )
             }
         </button>

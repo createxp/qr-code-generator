@@ -113,7 +113,7 @@ const NewQRForm = () => {
             )}
             <Button
                 type='submit'
-                text={includeImage ? 'Generate QR Code with Image' : 'Generate QR Code'}
+                text={includeImage ? 'Save QR Code with Image' : 'Save QR Code'}
                 wFull={true}
                 onSubmit={handleSubmit}
             />

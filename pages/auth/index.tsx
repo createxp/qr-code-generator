@@ -5,6 +5,7 @@ import qrCodes from '../../public/images/qrCodes.png'
 import { Button } from '../../src/components/utility'
 import { FcGoogle } from 'react-icons/fc'
 import { useAuth } from '../../src/contexts'
+import { publicRoute } from '../../src/routes'
 
 const Login = () => {
     const { signInWithGoogle, user } = useAuth()
@@ -23,7 +24,7 @@ const Login = () => {
                 <Image src={qrCodeImg} />
             </div> */}
             <div className={[
-                "absolute top-[100px]",
+                "absolute top-[10%] sm:top-[15%] md:top-[20%] lg:top-[100px]",
             ].join()}>
                 <Image src={qrCodes} />
             </div>
@@ -31,16 +32,13 @@ const Login = () => {
                 <h2 className={[
                     'text-2xl text-center font-bold',
                     'md:text-4xl'
-                ]
-                    .join(" ")}>Track all your QRs <br />
+                ].join(" ")}>
+                    Track all your QRs
+                    <br />
                     in one place.
                 </h2>
                 <hr className='w-1/2' />
-                {
-                    !user && (
-                        <Button icon={<FcGoogle />} text={'Sign in with Google'} onClick={signInWithGoogle} />
-                    )
-                }
+                <Button icon={<FcGoogle />} text={'Sign in with Google'} onClick={signInWithGoogle} />
             </div>
 
         </div>
@@ -49,4 +47,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default publicRoute(Login)

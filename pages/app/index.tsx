@@ -1,16 +1,24 @@
 import React from 'react'
-import { Generate } from '../../src/components/pages'
-import { GenerateQRProvider } from '../../src/contexts/GenerateQR'
+import { Screen } from '../../src/components/app'
+import { Generate, Saved } from '../../src/components/pages'
+import { GenerateQRProvider, useScreen } from '../../src/contexts'
+import { privateRoute } from '../../src/routes'
 
 const App = () => {
-
+    const { selectedTab } = useScreen()
+    console.log(selectedTab)
     return (
-        <div className='p-1 select-none'>
-            <GenerateQRProvider>
-                <Generate />
-            </GenerateQRProvider>
-        </div>
+        <Screen className='select-none'>
+            {selectedTab === 0 && (
+                <Saved />
+            )}
+            {selectedTab === 1 && (
+                <GenerateQRProvider>
+                    <Generate />
+                </GenerateQRProvider>
+            )}
+        </Screen>
     )
 }
 
-export default App
+export default privateRoute(App)

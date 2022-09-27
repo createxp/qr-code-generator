@@ -4,7 +4,7 @@ import NewQRForm from './NewQRForm'
 
 const Generate = () => {
     return (
-        <div className='flex flex-col-reverse md:flex-row gap-2'>
+        <div className='flex flex-col-reverse md:flex-row gap-10 md:gap-2'>
             <NewQRForm />
             <DisplayQR />
         </div>

@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import toast from "react-hot-toast";
+import { publicRoute } from "../src/routes";
 
 const Home: NextPage = () => {
   return (
@@ -12,4 +12,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default publicRoute(Home);
