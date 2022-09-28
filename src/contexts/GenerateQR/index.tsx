@@ -28,8 +28,8 @@ export const GenerateQRContext = createContext<GenerateQRContextProps>({} as Gen
 export const GenerateQRProvider = (props: GenerateQRProviderProps) => {
     const [title, setTitle] = useState<string>('')
     const [url, setUrl] = useState<string>('')
-    const [bgColor, setBgColor] = useState<string>('#000000')
-    const [fgColor, setFgColor] = useState<string>('#ffffff')
+    const [bgColor, setBgColor] = useState<string>('#ffffff')
+    const [fgColor, setFgColor] = useState<string>('#000000')
     const [enableMargin, setEnableMargin] = useState<boolean>(false)
     const [includeImage, setincludeImage] = useState<boolean>(false)
     const [imageURL, setImageURL] = useState<string>('')

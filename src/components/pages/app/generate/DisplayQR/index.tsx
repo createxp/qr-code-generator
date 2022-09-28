@@ -31,8 +31,8 @@ const DisplayQR = () => {
     }, [ref])
 
     return (
-        <div className='p-1 md:w-1/2 flex items-center justify-center'>
-            <div className='bg-white rounded w-fit p-10 grid place-items-center border relative'>
+        <div className='p-1 md:w-1/2 flex items-center justify-center md:justify-end'>
+            <div className='bg-white rounded w-[340px] h-[340px] p-7 grid place-items-center border relative'>
                 <div id="capture" ref={ref}>
                     <QRCodeSVG
                         value={url}

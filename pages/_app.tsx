@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ScreenProvider>
         <Component {...pageProps} />
       </ScreenProvider>
-      <Toaster />
+      <Toaster position='bottom-center' />
     </AuthProvider>
   )
 }

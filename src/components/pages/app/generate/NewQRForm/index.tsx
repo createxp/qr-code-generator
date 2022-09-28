@@ -83,7 +83,7 @@ const NewQRForm = () => {
                 name='qrSize'
                 label='QR Code Size'
                 min={100}
-                max={300}
+                max={280}
                 step={1}
             />
             <Switch
