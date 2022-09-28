@@ -6,7 +6,6 @@ import { privateRoute } from '../../src/routes'
 
 const App = () => {
     const { selectedTab } = useScreen()
-    console.log(selectedTab)
     return (
         <Screen className='select-none'>
             {selectedTab === 0 && (

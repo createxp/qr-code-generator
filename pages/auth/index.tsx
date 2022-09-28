@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import qrCodeImg from '../../public/images/createxpQR.png'
 import qrCodes from '../../public/images/qrCodes.png'
@@ -6,9 +6,22 @@ import { Button } from '../../src/components/utility'
 import { FcGoogle } from 'react-icons/fc'
 import { useAuth } from '../../src/contexts'
 import { publicRoute } from '../../src/routes'
+import toast from 'react-hot-toast'
+import { FiLoader } from 'react-icons/fi'
 
 const Login = () => {
     const { signInWithGoogle, user } = useAuth()
+    const [loading, setLoading] = useState(false)
+    const handleLogin = () => {
+        setLoading(true)
+        signInWithGoogle().then(() => {
+            toast.success('Logged in successfully')
+            setLoading(false)
+        }).catch((err) => {
+            toast.error(err.message)
+            setLoading(false)
+        })
+    }
     return (
         <div className='h-screen grid place-items-center relative'>
             {/* <div className="absolute top-[100px] rotate-45 z-index">
@@ -38,7 +51,15 @@ const Login = () => {
                     in one place.
                 </h2>
                 <hr className='w-1/2' />
-                <Button icon={<FcGoogle />} text={'Sign in with Google'} onClick={signInWithGoogle} />
+                {
+                    loading ? <Button
+                        icon={<FiLoader className='text-white animate-spin' size={16} />}
+                        text='Signing in with Google'
+                        disabled
+                    />
+                        :
+                        <Button icon={<FcGoogle />} text={'Sign in with Google'} onClick={handleLogin} />
+                }
             </div>
 
         </div>

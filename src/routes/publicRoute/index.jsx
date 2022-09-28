@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import { useAuth } from '../../contexts';
+import { Loading } from '../../components/utility';
 
 
 export function publicRoute(Component) {
@@ -11,11 +12,11 @@ export function publicRoute(Component) {
             if (router.pathname === '/auth') {
                 router.push('/app')
 
-                return 'Loading...'
+                return <Loading />
             }
             if (router.pathname === '/') {
                 router.push('/')
-                return 'Loading...'
+                return <Loading />
             }
         }
         return <Component {...props} />

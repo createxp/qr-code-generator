@@ -55,8 +55,8 @@ const DisplayQR = () => {
                 </div>
 
                 <div className='flex gap-7 absolute -bottom-5'>
-                    <Button icon={<FiCopy className='text-white' size={'16px'} />} rounded={true} />
-                    <Button icon={<FiDownload className='text-white' size={'16px'} />} rounded={true} onClick={saveImg} />
+                    <Button icon={<FiCopy size={'16px'} />} rounded={true} />
+                    <Button icon={<FiDownload size={'16px'} />} rounded={true} onClick={saveImg} />
                 </div>
             </div>
         </div>
