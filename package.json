@@ -7,11 +7,12 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.2",
+    "copy-image-clipboard": "^2.1.2",
     "firebase": "^9.10.0",
-    "html-to-image": "^1.10.8",
     "next": "latest",
     "qrcode.react": "^3.1.0",
     "react": "18.1.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.1.0",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.4.0",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@types/node": "17.0.35",
     "@types/react": "18.0.9",
+    "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-dom": "18.0.5",
     "@types/validator": "^13.7.7",
     "autoprefixer": "^10.4.7",

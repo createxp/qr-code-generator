@@ -6,7 +6,11 @@ export default function Document() {
       <Head >
         <title>QR Code Generator | createxp</title>
         <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
-        <link href="http://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet" />
+        <link
+          href="https://fonts.cdnfonts.com/css/euclid-circular-a"
+          crossOrigin='anonymous'
+          rel="stylesheet"
+        />
       </Head>
       <body className='bg-neutral-100'>
         <Main />

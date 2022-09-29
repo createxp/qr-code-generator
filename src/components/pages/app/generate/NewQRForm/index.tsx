@@ -45,6 +45,7 @@ const NewQRForm = () => {
                 id='title'
                 name='title'
                 label='QR Code Title'
+                max={15}
             />
             <Input
                 type='url'

@@ -103,7 +103,7 @@ const Input = ({
                 {label}
             </label>
             <input
-                type={type}
+                type='text'
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
@@ -117,8 +117,8 @@ const Input = ({
                 ].join(' ')}
                 required={required}
                 disabled={disabled}
-                min={min}
-                max={max}
+                minLength={min}
+                maxLength={max}
                 {...props}
             />
         </div>
