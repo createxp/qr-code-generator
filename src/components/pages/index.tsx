@@ -5,3 +5,4 @@ export { default as NewQRForm } from './app/generate/NewQRForm'
 
 // Saved QRs Pages
 export { default as Saved } from './app/saved'
+export { default as ViewQRCode } from './app/saved/ViewQRCode'

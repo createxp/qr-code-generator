@@ -1,8 +1,14 @@
-import React from 'react'
-import { useGenerateQR } from '../../../../../contexts'
-import { Button, Input, Switch } from '../../../../utility'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import React, { useState } from 'react'
+import toast from 'react-hot-toast'
+import { FiAlignCenter, FiAlignLeft, FiAlignRight, FiLoader, FiSave } from 'react-icons/fi'
+import { useAuth, useGenerateQR } from '../../../../../contexts'
+import { db } from '../../../../../firebase'
+import { Button, Input, Select, Switch } from '../../../../utility'
 
 const NewQRForm = () => {
+    const { user } = useAuth()
+    const [loading, setLoading] = useState<boolean>(false)
     const {
         title,
         url,
@@ -12,6 +18,7 @@ const NewQRForm = () => {
         includeImage,
         imageURL,
         showTitle,
+        titlePosition,
         setTitle,
         setUrl,
         setBgColor,
@@ -20,19 +27,40 @@ const NewQRForm = () => {
         setincludeImage,
         setImageURL,
         setShowTitle,
+        setTitlePosition,
     } = useGenerateQR()
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        console.log({
+        setLoading(true)
+        addDoc(collection(db, `users/${user?.uid}/qrcodes`), {
             title,
             url,
             bgColor,
             fgColor,
             qrSize,
             includeImage,
-            imageURL,
+            ...includeImage && { imageURL },
             showTitle,
+            titlePosition,
+            createdAt: serverTimestamp(),
+            editedAt: serverTimestamp(),
+        }).then(() => {
+            toast.success('QR Code Added')
+            setTitle('')
+            setUrl('')
+            setBgColor('#ffffff')
+            setFgColor('#000000')
+            setQrSize(256)
+            setincludeImage(false)
+            setImageURL('')
+            setShowTitle(true)
+            setTitlePosition('left')
+            setLoading(false)
+        }).catch((err) => {
+            toast.error('Something went wrong!')
+            console.log(err)
+            setLoading(false)
         })
     }
     return (
@@ -47,6 +75,30 @@ const NewQRForm = () => {
                 label='QR Code Title'
                 max={20}
             />
+            <div className="flex gap-4">
+                <Switch
+                    id='showTitle'
+                    name='showTitle'
+                    label='Show Title on QR'
+                    state={showTitle}
+                    onChange={() => setShowTitle(!showTitle)}
+                    wrapperClassName='w-fit'
+                />
+
+                <Select
+                    id='titlePosition'
+                    name='titlePosition'
+                    label='Title Position'
+                    options={[
+                        { value: 'left', label: <FiAlignLeft /> },
+                        { value: 'center', label: <FiAlignCenter /> },
+                        { value: 'right', label: <FiAlignRight /> }
+                    ]}
+                    value={titlePosition}
+                    onChange={(value: string) => setTitlePosition(value)}
+                    disabled={!showTitle}
+                />
+            </div>
             <Input
                 type='url'
                 placeholder='Enter the url'
@@ -87,25 +139,17 @@ const NewQRForm = () => {
                 max={280}
                 step={1}
             />
-            <div className="flex gap-4">
 
-                <Switch
-                    id='includeImage'
-                    name='includeImage'
-                    label='Include Image'
-                    state={includeImage}
-                    onChange={() => setincludeImage(!includeImage)}
-                    wrapperClassName='w-fit'
-                />
-                <Switch
-                    id='showTitle'
-                    name='showTitle'
-                    label='Show Title on QR'
-                    state={showTitle}
-                    onChange={() => setShowTitle(!showTitle)}
-                    wrapperClassName='w-fit'
-                />
-            </div>
+
+            <Switch
+                id='includeImage'
+                name='includeImage'
+                label='Include Image'
+                state={includeImage}
+                onChange={() => setincludeImage(!includeImage)}
+            />
+
+
             {includeImage && (
                 <Input
                     type='url'
@@ -118,10 +162,16 @@ const NewQRForm = () => {
                 />
             )}
             <Button
+                icon={
+                    !loading ?
+                        <FiSave size={'16px'} />
+                        : <FiLoader size={'16px'} className='animate-spin' />
+                }
                 type='submit'
-                text={includeImage ? 'Save QR Code with Image' : 'Save QR Code'}
+                text={loading ? 'Saving' : includeImage ? 'Save QR Code with Image to Track' : 'Save QR Code to Track'}
                 wFull={true}
                 onSubmit={handleSubmit}
+                disabled={loading}
             />
         </form>
     )
