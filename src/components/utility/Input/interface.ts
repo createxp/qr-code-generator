@@ -1,5 +1,5 @@
 export interface InputProps {
-    type: 'text' | 'url' | 'color' | 'range',
+    type: 'text' | 'url' | 'color' | 'range' | 'file',
     placeholder?: string,
     value: string | number,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,

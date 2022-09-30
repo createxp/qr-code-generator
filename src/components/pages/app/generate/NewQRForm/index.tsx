@@ -9,17 +9,17 @@ const NewQRForm = () => {
         bgColor,
         fgColor,
         qrSize,
-        enableMargin,
         includeImage,
         imageURL,
+        showTitle,
         setTitle,
         setUrl,
         setBgColor,
         setFgColor,
         setQrSize,
-        setEnableMargin,
         setincludeImage,
         setImageURL,
+        setShowTitle,
     } = useGenerateQR()
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -30,9 +30,9 @@ const NewQRForm = () => {
             bgColor,
             fgColor,
             qrSize,
-            enableMargin,
             includeImage,
             imageURL,
+            showTitle,
         })
     }
     return (
@@ -45,7 +45,7 @@ const NewQRForm = () => {
                 id='title'
                 name='title'
                 label='QR Code Title'
-                max={15}
+                max={20}
             />
             <Input
                 type='url'
@@ -87,20 +87,25 @@ const NewQRForm = () => {
                 max={280}
                 step={1}
             />
-            <Switch
-                id='enableMargin'
-                name='enableMargin'
-                label='Enable Margin'
-                state={enableMargin}
-                onChange={() => setEnableMargin(!enableMargin)}
-            />
-            <Switch
-                id='includeImage'
-                name='includeImage'
-                label='Include Image'
-                state={includeImage}
-                onChange={() => setincludeImage(!includeImage)}
-            />
+            <div className="flex gap-4">
+
+                <Switch
+                    id='includeImage'
+                    name='includeImage'
+                    label='Include Image'
+                    state={includeImage}
+                    onChange={() => setincludeImage(!includeImage)}
+                    wrapperClassName='w-fit'
+                />
+                <Switch
+                    id='showTitle'
+                    name='showTitle'
+                    label='Show Title on QR'
+                    state={showTitle}
+                    onChange={() => setShowTitle(!showTitle)}
+                    wrapperClassName='w-fit'
+                />
+            </div>
             {includeImage && (
                 <Input
                     type='url'

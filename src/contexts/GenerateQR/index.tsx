@@ -17,6 +17,10 @@ interface GenerateQRContextProps {
     setImageURL: (imageURL: string) => void;
     qrSize: number;
     setQrSize: (qrSize: number) => void;
+    image: string;
+    setImage: (image: string) => void;
+    showTitle: boolean;
+    setShowTitle: (showTitle: boolean) => void;
 }
 
 interface GenerateQRProviderProps {
@@ -33,7 +37,9 @@ export const GenerateQRProvider = (props: GenerateQRProviderProps) => {
     const [enableMargin, setEnableMargin] = useState<boolean>(false)
     const [includeImage, setincludeImage] = useState<boolean>(false)
     const [imageURL, setImageURL] = useState<string>('')
+    const [image, setImage] = useState<string>('')
     const [qrSize, setQrSize] = useState<number>(256)
+    const [showTitle, setShowTitle] = useState<boolean>(true)
     return (
         <GenerateQRContext.Provider value={{
             title,
@@ -51,7 +57,11 @@ export const GenerateQRProvider = (props: GenerateQRProviderProps) => {
             imageURL,
             setImageURL,
             qrSize,
-            setQrSize
+            setQrSize,
+            image,
+            setImage,
+            showTitle,
+            setShowTitle
         }}>
             {props.children}
         </GenerateQRContext.Provider>

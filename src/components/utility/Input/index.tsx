@@ -103,7 +103,7 @@ const Input = ({
                 {label}
             </label>
             <input
-                type='text'
+                type={type}
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
