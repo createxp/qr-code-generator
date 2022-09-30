@@ -43,6 +43,7 @@ const NewQRForm = () => {
             ...includeImage && { imageURL },
             showTitle,
             titlePosition,
+            views: 0,
             createdAt: serverTimestamp(),
             editedAt: serverTimestamp(),
         }).then(() => {
