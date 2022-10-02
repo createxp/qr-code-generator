@@ -39,8 +39,8 @@ const Saved = () => {
                                     titlePosition={qr.titlePosition}
                                     showTitle={qr.showTitle}
                                     qrSize={qr.qrSize}
-                                    createdAt={dayjs(qr.createdAt.toDate()).format('DD MMM, YY')}
-                                    editedAt={dayjs(qr.editedAt.toDate()).format('DD MMM, YY')}
+                                    createdAt={dayjs(qr?.createdAt?.toDate()).format('DD MMM, YY')}
+                                    editedAt={dayjs(qr?.editedAt?.toDate()).format('DD MMM, YY')}
                                 />
                             ))
                         }

@@ -41,7 +41,13 @@ const Modal = (props: ModalProps) => {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel as={'div'} className="md:w-fit w-full md:min-w-[500px] max-h-[500px] md:max-h-[60%] md:max-w-[80%] transform overflow-y-scroll rounded-2xl bg-neutral-100 p-6 text-left align-middle shadow-xl transition-all">
+                            <Dialog.Panel as={'div'} className={[
+                                'rounded-2xl bg-neutral-100 p-6 text-left align-middle shadow-xl',
+                                'w-full max-h-[540px] min-h-[300px]',
+                                'md:w-fit md:min-w-[500px] md:max-w-[90%]',
+                                'overflow-y-scroll',
+                                'transform transition-all'
+                            ].join(' ')}>
                                 <div className="flex items-center justify-between">
                                     <Dialog.Title
                                         as="h3"

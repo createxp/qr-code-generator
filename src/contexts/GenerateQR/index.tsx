@@ -42,7 +42,7 @@ export const GenerateQRProvider = (props: GenerateQRProviderProps) => {
     const [image, setImage] = useState<string>('')
     const [qrSize, setQrSize] = useState<number>(256)
     const [showTitle, setShowTitle] = useState<boolean>(true)
-    const [titlePosition, setTitlePosition] = useState<string>('left')
+    const [titlePosition, setTitlePosition] = useState<string>('center')
     return (
         <GenerateQRContext.Provider value={{
             title,
