@@ -1,4 +1,4 @@
-import { doc, getDoc, onSnapshot, setDoc } from 'firebase/firestore'
+import { doc, getDoc, increment, onSnapshot, setDoc } from 'firebase/firestore'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { FiLoader } from 'react-icons/fi'
@@ -24,7 +24,7 @@ const VisitQRLink = () => {
                 if (doc.exists()) {
                     const data = doc.data()
                     setDoc(docRef, {
-                        views: data?.views + 1
+                        views: increment(1)
                     }, { merge: true }).then(() => {
                         router.push(data?.url)
                     })
