@@ -113,7 +113,7 @@ const QRDetailModal = ({
                         reference={ref}
                         bgColor={bgColor}
                         fgColor={fgColor}
-                        url={url}
+                        url={`https://qr.createxp.in/qr?id=${user?.uid}-${id}`}
                         qrSize={qrSize}
                         includeImage={includeImage}
                         imageURL={imageURL}

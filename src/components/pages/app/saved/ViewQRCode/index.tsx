@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FiEye } from 'react-icons/fi'
+import { useAuth } from '../../../../../contexts'
 import { QRCode, VisitLink } from '../../../../app'
 import QRDetailModal from '../QRDetailModal'
 
@@ -32,6 +33,7 @@ const ViewQRCode = ({
     createdAt: string,
     editedAt: string,
 }) => {
+    const { user } = useAuth()
     const [isOpen, setIsOpen] = useState(false)
     return (
         <div className={[
@@ -48,7 +50,7 @@ const ViewQRCode = ({
                 showTitle={true}
                 title={title}
                 titlePosition='left'
-                url={url}
+                url={`https://qr.createxp.in/qr?id=${user?.uid}-${id}`}
                 titleSize={'16px'}
             />
             <div className={[
