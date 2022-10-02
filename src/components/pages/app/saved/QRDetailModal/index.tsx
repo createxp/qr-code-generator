@@ -49,7 +49,6 @@ const QRDetailModal = ({
         editedAt
     } = qrCode
 
-    console.log(id)
     const { user } = useAuth()
 
     const [loading, setLoading] = useState<boolean>(false)
