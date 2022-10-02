@@ -1,5 +1,5 @@
 const navbarTabs = [
-    'Saved QRs',
+    'Saved',
     'Generate',
 ]
 

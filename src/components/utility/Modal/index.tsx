@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ModalProps } from './interface'
-import Button from '../Button'
+import { FiX } from 'react-icons/fi'
 
 const Modal = (props: ModalProps) => {
     const {
@@ -9,7 +9,6 @@ const Modal = (props: ModalProps) => {
         onClose,
         title,
         children,
-        className
     } = props
     return (
         <Transition appear show={isOpen} as={Fragment} >
@@ -17,6 +16,7 @@ const Modal = (props: ModalProps) => {
                 as='div'
                 className="relative z-10"
                 onClose={onClose}
+                open={isOpen}
             >
                 <Transition.Child
                     as={Fragment}
@@ -41,17 +41,20 @@ const Modal = (props: ModalProps) => {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-neutral-100 p-6 text-left align-middle shadow-xl transition-all">
-                                <Dialog.Title
-                                    as="h3"
-                                    className="text-lg font-medium leading-6 text-gray-900"
-                                >
-                                    {title}
-                                </Dialog.Title>
+                            <Dialog.Panel as={'div'} className="md:w-fit w-full md:min-w-[500px] max-h-[500px] md:max-h-[60%] md:max-w-[80%] transform overflow-y-scroll rounded-2xl bg-neutral-100 p-6 text-left align-middle shadow-xl transition-all">
+                                <div className="flex items-center justify-between">
+                                    <Dialog.Title
+                                        as="h3"
+                                        className="text-lg font-medium leading-6 text-gray-900"
+                                    >
+                                        {title}
+                                    </Dialog.Title>
+                                    <div className="p-2 rounded-full transition-all bg-neutral-200  hover:bg-neutral-300 active:scale-[0.95] cursor-pointer" onClick={onClose}>
+                                        <FiX />
+                                    </div>
+                                </div>
                                 <div className="mt-2">
-                                    <p className="text-neutral-500">
-                                        {children}
-                                    </p>
+                                    {children}
                                 </div>
                             </Dialog.Panel>
                         </Transition.Child>

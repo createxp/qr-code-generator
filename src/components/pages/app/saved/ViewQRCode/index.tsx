@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FiEye } from 'react-icons/fi'
 import { QRCode, VisitLink } from '../../../../app'
+import QRDetailModal from '../QRDetailModal'
 
 const ViewQRCode = ({
+    id,
     bgColor,
     fgColor,
     url,
     includeImage,
     imageURL,
     title,
-    views
+    views,
+    titlePosition,
+    showTitle,
+    qrSize,
 }: {
+    id: string,
     bgColor: string,
     fgColor: string,
     url: string,
@@ -18,12 +24,16 @@ const ViewQRCode = ({
     imageURL: string,
     title: string,
     views: number,
+    titlePosition: string,
+    showTitle: boolean,
+    qrSize: number,
 }) => {
+    const [isOpen, setIsOpen] = useState(false)
     return (
         <div className={[
             'border border-neutral-200 rounded transition-all cursor-pointer relative  w-fit',
             'hover:transform hover:scale-[1.01] hover:shadow',
-        ].join(' ')}>
+        ].join(' ')} onClick={() => setIsOpen(true)}>
             <VisitLink url={url} className='absolute -top-4 -right-4 z-10' />
             <QRCode
                 bgColor={bgColor}
@@ -45,6 +55,23 @@ const ViewQRCode = ({
                 <FiEye size={12} />
                 <span className='text-xs'>{views}</span>
             </div>
+            <QRDetailModal
+                qrCode={{
+                    bgColor,
+                    fgColor,
+                    url,
+                    includeImage,
+                    imageURL,
+                    title,
+                    views,
+                    titlePosition,
+                    showTitle,
+                    qrSize,
+                }}
+                isOpen={isOpen}
+                onClose={() => setIsOpen(false)}
+                id={id}
+            />
         </div>
     )
 }

@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { useRouter } from "next/router";
+import { createContext, useContext, useEffect, useState } from "react";
 
 interface ScreenContextProps {
     selectedTab: number;
@@ -12,6 +13,21 @@ interface ScreenProviderProps {
 }
 
 export const ScreenProvider = (props: ScreenProviderProps) => {
+    const router = useRouter();
+    const { tab } = router.query;
+    useEffect(() => {
+        if (tab) {
+            if (tab === 'generate') {
+                setSelectedTab(1);
+            }
+            if (tab === 'saved') {
+                setSelectedTab(0);
+            }
+        }
+        else {
+            setSelectedTab(0);
+        }
+    }, [tab]);
     const [selectedTab, setSelectedTab] = useState<number>(0)
     return (
         <ScreenContext.Provider value={{

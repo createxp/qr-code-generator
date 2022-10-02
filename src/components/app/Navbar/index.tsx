@@ -1,10 +1,12 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useScreen } from '../../../contexts'
 import { navbarTabs } from '../../../data'
 import Avatar from '../Avatar'
 
 const Navbar = () => {
-    const { selectedTab, setSelectedTab } = useScreen()
+    const router = useRouter()
+    const { selectedTab } = useScreen()
     return (
         <div className='w-full flex justify-center items-center py-5 select-none relative'>
             <div className='flex gap-1 px-1 py-2 border border-neutral-800 w-fit rounded-full relative transition-all'>
@@ -17,7 +19,9 @@ const Navbar = () => {
                     <div key={index} className={[
                         'flex items-center justify-center cursor-pointer whitespace-nowrap text-sm w-[100px] z-10',
                         selectedTab === index ? 'text-white' : 'text-neutral-800'
-                    ].join(' ')} onClick={() => setSelectedTab(index)}>
+                    ].join(' ')} onClick={() => router.push(
+                        `/app?tab=${tab.toLowerCase()}`
+                    )}>
                         {tab}
                     </div>
                 ))}

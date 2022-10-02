@@ -1,4 +1,5 @@
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 import { FiAlignCenter, FiAlignLeft, FiAlignRight, FiLoader, FiSave } from 'react-icons/fi'
@@ -8,6 +9,7 @@ import { Button, Input, Select, Switch } from '../../../../utility'
 
 const NewQRForm = () => {
     const { user } = useAuth()
+    const router = useRouter()
     const [loading, setLoading] = useState<boolean>(false)
     const {
         title,
@@ -58,6 +60,7 @@ const NewQRForm = () => {
             setShowTitle(true)
             setTitlePosition('left')
             setLoading(false)
+            router.push('/app?tab=saved')
         }).catch((err) => {
             toast.error('Something went wrong!')
             console.log(err)

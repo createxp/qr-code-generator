@@ -16,6 +16,7 @@ const VisitLink = ({
                 rel="noreferrer"
                 className={[
                     'flex bg-neutral-800 text-neutral-100 rounded-full items-center justify-center',
+                    'hover:bg-neutral-900 active:bg-neutral-800 active:scale-[0.95]',
                     'w-[34px] h-[34px]',
                     'group overflow-clip transition-all relative'
                 ].join(' ')}
