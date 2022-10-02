@@ -53,7 +53,7 @@ const QRCode = ({
                                         alt='logo'
                                         className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
                                         style={{
-                                            height: qrSize / 6,
+                                            height: qrSize / 5,
                                         }}
                                     />
                                 )
@@ -61,7 +61,7 @@ const QRCode = ({
                         </div>
                     ) : (
                         <div className="flex-1">
-                            <p className='text-red-500'>
+                            <p className='text-red-500 text-center'>
                                 Please enter a valid URL
                             </p>
                         </div>

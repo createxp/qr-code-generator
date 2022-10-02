@@ -14,6 +14,7 @@ const QRDetailModal = ({
     qrCode,
     isOpen,
     onClose,
+
 }: {
     id: string,
     qrCode: {
@@ -27,6 +28,8 @@ const QRDetailModal = ({
         titlePosition: string,
         showTitle: boolean,
         qrSize: number,
+        createdAt: string,
+        editedAt: string,
     },
     isOpen: boolean,
     onClose: () => void,
@@ -42,6 +45,8 @@ const QRDetailModal = ({
         titlePosition,
         showTitle,
         qrSize,
+        createdAt,
+        editedAt
     } = qrCode
 
     console.log(id)
@@ -137,7 +142,7 @@ const QRDetailModal = ({
                     }
                 </div>
                 <hr className='w-1/2 md:hidden' />
-                <div className="flex flex-col gap-4 flex-1 w-full">
+                <div className="flex flex-col gap-4 w-full">
                     <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-2">
                             <p className='text-2xl'>
@@ -145,9 +150,17 @@ const QRDetailModal = ({
                             </p>
                             <VisitLink url={url} />
                         </div>
-                        <p className='text-sm text-neutral-400'>
+                        <p className='text-sm text-neutral-500'>
                             {url}
                         </p>
+                        <div className="flex gap-2 mt-1">
+                            <p className='text-xs text-neutral-400'>
+                                Created:{createdAt}
+                            </p>
+                            <p className='text-xs text-neutral-400'>
+                                Edited:{editedAt}
+                            </p>
+                        </div>
                     </div>
                     <div className="flex items-center gap-2">
                         <FiEye size={18} />
@@ -177,7 +190,6 @@ const QRDetailModal = ({
                     </div>
                 </div>
             </div>
-
         </Modal>
     )
 }

@@ -8,6 +8,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.2",
     "copy-image-clipboard": "^2.1.2",
+    "dayjs": "^1.11.5",
     "firebase": "^9.10.0",
     "html-to-image": "^1.10.8",
     "next": "latest",

@@ -15,6 +15,8 @@ const ViewQRCode = ({
     titlePosition,
     showTitle,
     qrSize,
+    createdAt,
+    editedAt,
 }: {
     id: string,
     bgColor: string,
@@ -27,6 +29,8 @@ const ViewQRCode = ({
     titlePosition: string,
     showTitle: boolean,
     qrSize: number,
+    createdAt: string,
+    editedAt: string,
 }) => {
     const [isOpen, setIsOpen] = useState(false)
     return (
@@ -67,6 +71,8 @@ const ViewQRCode = ({
                     titlePosition,
                     showTitle,
                     qrSize,
+                    createdAt,
+                    editedAt
                 }}
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}

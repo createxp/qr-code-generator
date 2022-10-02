@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../../../contexts'
 import { db } from '../../../../firebase'
 import ViewQRCode from './ViewQRCode'
+import dayjs from 'dayjs'
 
 
 const Saved = () => {
@@ -38,6 +39,8 @@ const Saved = () => {
                                     titlePosition={qr.titlePosition}
                                     showTitle={qr.showTitle}
                                     qrSize={qr.qrSize}
+                                    createdAt={dayjs(qr.createdAt.toDate()).format('DD MMM, YY')}
+                                    editedAt={dayjs(qr.editedAt.toDate()).format('DD MMM, YY')}
                                 />
                             ))
                         }
