@@ -37,7 +37,7 @@ const ViewQRCode = ({
     const [isOpen, setIsOpen] = useState(false)
     return (
         <div className={[
-            'border border-neutral-200 rounded transition-all cursor-pointer relative  w-fit',
+            'rounded transition-all cursor-pointer relative  w-fit',
             'hover:transform hover:scale-[1.01] hover:shadow',
         ].join(' ')} onClick={() => setIsOpen(true)}>
             <VisitLink url={url} className='absolute -top-4 -right-4 z-10' />
