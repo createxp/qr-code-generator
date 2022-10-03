@@ -161,7 +161,7 @@ const QRDetailModal = ({
             title='QR Code Details'
         >
             <div className="flex flex-col justify-center items-center md:items-start md:justify-start w-full md:flex-row gap-6 mt-3">
-                <div className='rounded-lg w-fit h-fit flex flex-col gap-3 justify-center items-center relative md:sticky top-0'>
+                <div className='rounded-lg w-fit h-fit flex flex-col gap-3 justify-center items-center relative md:sticky md:top-0'>
                     <QRCode
                         id='capture'
                         reference={ref}
@@ -317,24 +317,26 @@ const QRDetailModal = ({
                                     onChange={(e) => setEditImageURL(e.target.value)}
                                 />
                             )}
-                            <Button
-                                icon={
-                                    !loading ? (
-                                        <FiEdit2 size={"16px"} />
-                                    ) : (
-                                        <FiLoader size={"16px"} className="animate-spin" />
-                                    )
-                                }
-                                type="submit"
-                                text={
-                                    loading
-                                        ? "Editing"
-                                        : "Edit QR Code"
-                                }
-                                wFull={true}
-                                onSubmit={handleSubmit}
-                                disabled={loading}
-                            />
+                            <div className="w-full md:sticky md:bottom-0">
+                                <Button
+                                    icon={
+                                        !loading ? (
+                                            <FiEdit2 size={"16px"} />
+                                        ) : (
+                                            <FiLoader size={"16px"} className="animate-spin" />
+                                        )
+                                    }
+                                    type="submit"
+                                    text={
+                                        loading
+                                            ? "Editing"
+                                            : "Edit QR Code"
+                                    }
+                                    wFull={true}
+                                    onSubmit={handleSubmit}
+                                    disabled={loading}
+                                />
+                            </div>
                         </form>
                     </div>
                 ) : (
