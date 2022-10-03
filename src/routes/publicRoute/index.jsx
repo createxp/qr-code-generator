@@ -11,11 +11,6 @@ export function publicRoute(Component) {
         if (auth.user) {
             if (router.pathname === '/auth') {
                 router.push('/app')
-
-                return <Loading />
-            }
-            if (router.pathname === '/') {
-                router.push('/')
                 return <Loading />
             }
         }
