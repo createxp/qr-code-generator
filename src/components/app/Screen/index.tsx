@@ -4,12 +4,15 @@ import { ScreenProps } from './interface'
 const Screen = (props: ScreenProps) => {
     const { className } = props
     return (
-        <div className={[
-            "lg:px-[160px] p-4 flex flex-col gap-5 md:gap-10 pb-[100px]",
-            className
-        ].join(' ')}>
+        <div>
             <Navbar />
-            {props.children}
+            <div className='h-5 md:h-10'></div>
+            <div className={[
+                "lg:px-[160px] p-4 flex flex-col  pb-[100px]",
+                className
+            ].join(' ')}>
+                {props.children}
+            </div>
         </div>
     )
 }
