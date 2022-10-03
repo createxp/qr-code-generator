@@ -14,7 +14,7 @@ const Modal = (props: ModalProps) => {
         <Transition appear show={isOpen} as={Fragment} >
             <Dialog
                 as='div'
-                className="relative z-10"
+                className="relative z-50"
                 onClose={onClose}
                 open={isOpen}
             >
