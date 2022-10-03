@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 import { QRCode, VisitLink } from '../../../../app'
 import { Button, Input, Loading, Modal, Select, Switch } from '../../../../utility'
 import validator from 'validator'
-import { FiAlignCenter, FiAlignLeft, FiAlignRight, FiChevronLeft, FiDownload, FiEdit2, FiEye, FiLoader, FiTrash } from 'react-icons/fi'
+import { FiAlignCenter, FiAlignLeft, FiAlignRight, FiChevronLeft, FiDownload, FiEdit2, FiEye, FiLoader, FiSave, FiTrash } from 'react-icons/fi'
 import { deleteDoc, doc, serverTimestamp, setDoc } from 'firebase/firestore'
 import { db } from '../../../../../firebase'
 import { useAuth } from '../../../../../contexts'
@@ -177,23 +177,49 @@ const QRDetailModal = ({
                         titleSize={'20px'}
                     />
                     {
-                        validator.isURL(url) && (
+                        edit ? (
                             <Button
                                 icon={
-                                    !downloading ?
-                                        <FiDownload size={'16px'} />
-                                        : <FiLoader size={'16px'} className='animate-spin' />
+                                    !loading ? (
+                                        <FiSave size={"16px"} />
+                                    ) : (
+                                        <FiLoader size={"16px"} className="animate-spin" />
+                                    )
                                 }
-                                onClick={saveImg}
+                                type="submit"
                                 text={
-                                    downloading ? 'Downloading...' : 'Download'
+                                    loading
+                                        ? "Editing"
+                                        : "Save Changes"
                                 }
-                                className='px-4'
-                                disabled={downloading}
-                                wFull
+                                wFull={true}
+                                onSubmit={handleSubmit}
+                                disabled={loading}
                             />
+                        ) : (
+                            <>
+                                {
+                                    validator.isURL(url) && (
+                                        <Button
+                                            icon={
+                                                !downloading ?
+                                                    <FiDownload size={'16px'} />
+                                                    : <FiLoader size={'16px'} className='animate-spin' />
+                                            }
+                                            onClick={saveImg}
+                                            text={
+                                                downloading ? 'Downloading...' : 'Download'
+                                            }
+                                            className='px-4'
+                                            disabled={downloading}
+                                            wFull
+                                        />
+                                    )
+                                }
+                            </>
                         )
                     }
+
                 </div>
                 <hr className='w-1/2 md:hidden' />
                 {edit ? (
@@ -317,26 +343,8 @@ const QRDetailModal = ({
                                     onChange={(e) => setEditImageURL(e.target.value)}
                                 />
                             )}
-                            <div className="w-full md:sticky md:bottom-0">
-                                <Button
-                                    icon={
-                                        !loading ? (
-                                            <FiEdit2 size={"16px"} />
-                                        ) : (
-                                            <FiLoader size={"16px"} className="animate-spin" />
-                                        )
-                                    }
-                                    type="submit"
-                                    text={
-                                        loading
-                                            ? "Editing"
-                                            : "Edit QR Code"
-                                    }
-                                    wFull={true}
-                                    onSubmit={handleSubmit}
-                                    disabled={loading}
-                                />
-                            </div>
+
+
                         </form>
                     </div>
                 ) : (
