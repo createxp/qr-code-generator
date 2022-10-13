@@ -10,5 +10,5 @@ export interface ButtonProps {
     className?: string,
     rounded?: boolean,
     wFull?: boolean,
-    variant?:'fill' | 'outline'
+    variant?:'fill' | 'outline' | 'white'
 }
