@@ -19,6 +19,7 @@ const Home: NextPage = () => {
         onClick={() => router.push('/app')}
       /> */}
       <Hero />
+      <Spacer />
       <Features />
       <Spacer />
       <Faq />

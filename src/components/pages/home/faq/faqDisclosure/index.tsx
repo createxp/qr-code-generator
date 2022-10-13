@@ -9,7 +9,7 @@ const FaqDisclosure = ({ question, answer }: faqDisclosureProps) => {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="py-4 px-8 flex justify-between items-center w-full">
+            <Disclosure.Button className="px-4 py-2 md:py-4 md:px-8 text-left flex justify-between items-center w-full">
               {question}
               <FiChevronDown
                 className={
@@ -27,7 +27,7 @@ const FaqDisclosure = ({ question, answer }: faqDisclosureProps) => {
               leaveFrom="transform translate-y-0"
               leaveTo="transform -translate-y-4 opacity-0"
             >
-              <Disclosure.Panel className="text-gray-500 px-8 pb-4">
+              <Disclosure.Panel className="text-gray-500 px-4 py-2 md:py-4 md:px-8">
                 {answer}
               </Disclosure.Panel>
             </Transition>
