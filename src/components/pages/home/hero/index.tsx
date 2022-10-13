@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Button } from "../../../utility";
 
@@ -9,11 +10,13 @@ const Hero = () => {
           <h2 className="text-center text-3xl md:text-5xl font-semibold text-white">
             Create QR codes fast and easy!
           </h2>
-          <Button
-            text="Get started, it's free! "
-            variant="white"
-            className="font-semibold md:text-lg"
-          />
+          <Link href="/app" passHref>
+            <Button
+              text="Get started, it's free! "
+              variant="white"
+              className="font-semibold md:text-lg"
+            />
+          </Link>
         </div>
       </div>
       <img

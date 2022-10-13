@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { Button } from "../../../utility";
 
@@ -7,11 +8,13 @@ const Footer = () => {
       <h2 className="text-center text-2xl md:text-5xl font-semibold text-white">
         Create your first QR code now
       </h2>
-      <Button
-        text="Get started, it's free! "
-        variant="white"
-        className="font-semibold md:text-lg"
-      />
+      <Link href="/app" passHref>
+        <Button
+          text="Get started, it's free! "
+          variant="white"
+          className="font-semibold md:text-lg"
+        />
+      </Link>
       <img
         src="/images/createxpQR.png"
         alt=""
