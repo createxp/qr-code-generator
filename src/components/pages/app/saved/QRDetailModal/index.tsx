@@ -92,8 +92,7 @@ const QRDetailModal = ({
     }, [ref])
 
     // Edit
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = () => {
         setLoading(true);
         if (!validator.isURL(editUrl)) {
             toast.error("Invalid URL");
@@ -111,7 +110,7 @@ const QRDetailModal = ({
                 fgColor: editFgColor,
                 url: editUrl,
                 includeImage: editIncludeImage,
-                imageURL: editImageURL,
+                ...editIncludeImage && { imageURL: editImageURL },
                 title: editTitle,
                 titlePosition: editTitlePosition,
                 showTitle: editShowTitle,
@@ -194,6 +193,7 @@ const QRDetailModal = ({
                                 }
                                 wFull={true}
                                 onSubmit={handleSubmit}
+                                onClick={() => handleSubmit()}
                                 disabled={loading}
                             />
                         ) : (
