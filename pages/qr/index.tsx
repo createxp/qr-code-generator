@@ -41,7 +41,7 @@ const VisitQRLink = () => {
                     (
                         <h2 className="animate-pulse flex flex-col justify-center items-center gap-2">
                             <span>
-                                Redirecting...
+                                Redirecting
                             </span>
                             <FiLoader className='animate-spin' />
                         </h2>
