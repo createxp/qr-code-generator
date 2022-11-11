@@ -8,27 +8,38 @@ import { publicRoute } from '../../src/routes'
 const VisitQRLink = () => {
     const router = useRouter()
     const { id } = router.query
+    const [link, setLink] = useState('')
+    const [logs, setLogs] = useState('')
 
     const [notFound, setNotFound] = useState(false)
 
     useEffect(() => {
         if (id) {
+            setLogs('ID found')
             const user = (id as string).split('-')[0]
             const qr = (id as string).split('-')[1]
             if (!user || !qr) {
+                setLogs('Invalid ID')
                 setNotFound(true)
                 return
             }
             const docRef = doc(db, 'users', user, 'qrcodes', qr)
             getDoc(docRef).then((doc) => {
                 if (doc.exists()) {
+                    setLogs('QR found')
                     const data = doc.data()
+                    if (data) {
+                        setLogs('QR data found')
+                    }
+                    setLink(data.url)
                     setDoc(docRef, {
                         views: increment(1)
                     }, { merge: true }).then(() => {
+                        setLogs('QR views incremented')
                         router.push(data?.url)
                     })
                 } else {
+                    setLogs('QR not found')
                     setNotFound(true)
                 }
             })
@@ -41,7 +52,13 @@ const VisitQRLink = () => {
                     (
                         <h2 className="animate-pulse flex flex-col justify-center items-center gap-2">
                             <span>
-                                Redirecting
+                                Redirecting...
+                            </span>
+                            <span>
+                                {logs}
+                            </span>
+                            <span>
+                                Click <a href={link} className="text-blue-500">here</a> if you are not redirected.
                             </span>
                             <FiLoader className='animate-spin' />
                         </h2>
