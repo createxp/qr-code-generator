@@ -1,6 +1,3 @@
-const navbarTabs = [
-    'Saved',
-    'Generate',
-]
+const navbarTabs = ["Saved", "Generate"];
 
-export default navbarTabs
+export default navbarTabs;
