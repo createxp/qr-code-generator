@@ -1,4 +1,4 @@
-import Hero from "./HeroSection";
+import Hero from "./Hero";
 import Cards from "./Cards";
 import FAQs from "./FAQs";
 import CTA from "./CTA";
