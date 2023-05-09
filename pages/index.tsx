@@ -1,16 +1,16 @@
 import type { NextPage } from "next";
 import { publicRoute } from "../src/routes";
-import { Faq, Features, Hero } from "../src/components/pages";
-import Spacer from "../src/components/utility/spacer";
-import CTA from "../src/components/app/CTA";
+import { FAQs, Cards, Hero, CTA } from "../src/components/pages/home";
+import { Spacer } from "../src/components/utility";
+
 
 const Home: NextPage = () => {
   return (
     <div className="">
       <Hero />
-      <Features />
+      <Cards />
       <Spacer />
-      <Faq />
+      <FAQs />
       <Spacer />
       <CTA />
     </div>

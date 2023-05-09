@@ -1,3 +1,4 @@
-export {default as navbarTabs} from './navbarTabs'
-export {default as features} from './features'
-export {default as faq} from './faq'
+export { default as navbarTabs } from './navbarTabs'
+export { default as cards } from './cardsData'
+export { default as faq } from './faqData'
+export { default as features } from './featuresData'

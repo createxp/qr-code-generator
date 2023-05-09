@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
-import Section from "../Section";
-import { Button } from "../../utility";
+import Section from "../../../app/Section";
+import { Button } from "../../../utility";
 
 const CTA = () => {
   const router = useRouter();
