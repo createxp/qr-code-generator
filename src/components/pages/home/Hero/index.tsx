@@ -27,7 +27,7 @@ const Hero = () => {
         />
       </div>
       <div className="lg:w-full md:w-[90%] w-full">
-        <img src="/images/qr.png" className="rounded-lg" alt="QR img" />
+        <img src="/images/heroPage.png" className="rounded-lg" alt="QR img" />
       </div>
     </Section>
   );

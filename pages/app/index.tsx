@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Screen className="w-full min-h-screen bg-neutral-100">
       <Head>
-        <title>Price-Calc by createxp</title>
+        <title>QR Code Generater by createxp</title>
       </Head>
       {/* Create Page */}
       {selectedTab === 0 && <Saved />}

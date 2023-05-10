@@ -4,7 +4,7 @@ interface SpacerProps {
   height?: string;
 }
 
-const Spacer = ({ height = "1rem" }: SpacerProps) => {
+const Spacer = ({ height = "72px" }: SpacerProps) => {
   return (
     <div
       style={{
