@@ -8,16 +8,16 @@ interface NavbarTabType {
 }
 const navbarTabs: NavbarTabType[] = [
   {
-    label: "Generate",
-    tab: "generate",
-    icon: <FiPlusCircle />,
-    active: true,
-  },
-  {
     label: "Saved",
     tab: "saved",
     icon: <FiSave />,
     active: false,
+  },
+  {
+    label: "Generate",
+    tab: "generate",
+    icon: <FiPlusCircle />,
+    active: true,
   },
 ];
 

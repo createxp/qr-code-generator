@@ -20,13 +20,13 @@ export const ScreenProvider = (props: ScreenProviderProps) => {
   useEffect(() => {
     if (tab) {
       if (tab === "generate") {
-        setSelectedTab(1);
-      }
-      if (tab === "saved") {
         setSelectedTab(0);
       }
+      if (tab === "saved") {
+        setSelectedTab(1);
+      }
     } else {
-      setSelectedTab(1);
+      setSelectedTab(0);
     }
   }, [tab]);
   const [selectedTab, setSelectedTab] = useState<number>(0);

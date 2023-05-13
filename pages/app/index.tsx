@@ -14,9 +14,9 @@ const App = () => {
         <title>QR Code Generater by createxp</title>
       </Head>
       {/* Create Page */}
-      {selectedTab === 0 && <Saved />}
+      {selectedTab === 1 && <Saved />}
       {/* Saved Page */}
-      {selectedTab === 1 && (
+      {selectedTab === 0 && (
         <GenerateQRProvider>
           <Generate />
         </GenerateQRProvider>
