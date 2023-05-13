@@ -8,6 +8,7 @@ import Link from "next/link";
 const Navbar = () => {
   const router = useRouter();
   const { selectedTab } = useScreen();
+  console.log("selectedTab", selectedTab);
 
   return (
     <div className="bg-neutral-100 fixed top-0 z-50 lg:px-40 px-4 w-full shadow">
@@ -29,7 +30,7 @@ const Navbar = () => {
           <div
             className={[
               "slider absolute w-[100px] py-4 px-5 rounded-full top-1/2 -translate-y-1/2 bg-neutral-800 transition-all",
-              selectedTab === 0 ? "left-[51%]" : "left-1",
+              selectedTab === 1 ? "left-[51%]" : "left-1",
             ].join(" ")}
           ></div>
           {navbarTabs.map((tab, index) => (
@@ -38,10 +39,9 @@ const Navbar = () => {
               className={[
                 "flex gap-2 items-center justify-center cursor-pointer whitespace-nowrap text-sm w-[100px] z-10 ",
                 // selectedTab === index ? "text-white" : "text-neutral-800",
-                selectedTab === index ? "text-neutral-800" : "text-white",
+                selectedTab !== index ? "text-neutral-800" : "text-white",
               ].join(" ")}
               onClick={() => {
-                if (tab.active) router.push(`/app?tab=${tab.tab}`);
                 router.push(`/app?tab=${tab.tab}`);
               }}
             >

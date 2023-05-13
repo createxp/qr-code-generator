@@ -20,10 +20,10 @@ export const ScreenProvider = (props: ScreenProviderProps) => {
   useEffect(() => {
     if (tab) {
       if (tab === "generate") {
-        setSelectedTab(0);
+        setSelectedTab(1);
       }
       if (tab === "saved") {
-        setSelectedTab(1);
+        setSelectedTab(0);
       }
     } else {
       setSelectedTab(0);
