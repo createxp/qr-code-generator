@@ -9,7 +9,7 @@ const cards: {
   {
     icon: <MdQrCodeScanner size={24} />,
     content:
-      "Turn heads with QR codes that scream Im unique! Use our customization options to create QR codes that are as colorful and quirky as you are.",
+      "Turn heads with QR codes that scream I'm unique! Use our customization options to create QR codes that are as colorful and quirky as you are.",
   },
   {
     icon: <AiOutlineEye size={24} />,

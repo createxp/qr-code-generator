@@ -7,7 +7,7 @@ const CTA = () => {
   const router = useRouter();
   return (
     <Section className="justify-center items-center gap-10 w-full bg-dots-full bg-center bg-cover bg-no-repeat text-neutral-50 py-20">
-      <h2 className="font-krona text-center text-xl md:text-2xl lg:text-3xl-krona">
+      <h2 className="font-krona text-center text-xl md:text-2xl lg:w-3/4 xl:text-3xl-krona">
         Take Your Marketing to the Next Level With Custom QR Codes <br />
       </h2>
       <Button

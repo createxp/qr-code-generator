@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "../../../app/Section";
 import { features } from "../../../../data";
+import Pill from "../../../utility/Pill";
 
 const Features = () => {
   return (
@@ -19,7 +20,13 @@ const Features = () => {
           >
             <div className="w-full relative">
               <img src={feature.img} alt={feature.title} width={"100%"} />
-              {/* {feature.pill && <Pill label={feature.pill} color='success' className="absolute -top-4 left-1/2 -translate-x-1/2" />} */}
+              {feature.pill && (
+                <Pill
+                  label={feature.pill}
+                  color="green"
+                  className="absolute -top-4 left-1/2 -translate-x-1/2"
+                />
+              )}
             </div>
             <div className="flex flex-col justify-center gap-3 w-full">
               <h3 className="font-krona text-xl">{feature.title}</h3>
