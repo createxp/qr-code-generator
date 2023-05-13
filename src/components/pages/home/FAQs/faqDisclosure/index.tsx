@@ -1,7 +1,11 @@
 import { Disclosure, Transition } from "@headlessui/react";
 import React from "react";
-import { FiArrowDown, FiChevronDown } from "react-icons/fi";
-import { faqDisclosureProps } from "./interface";
+import { FiChevronDown } from "react-icons/fi";
+
+interface faqDisclosureProps {
+  question: string,
+  answer: string,
+}
 
 const FaqDisclosure = ({ question, answer }: faqDisclosureProps) => {
   return (
