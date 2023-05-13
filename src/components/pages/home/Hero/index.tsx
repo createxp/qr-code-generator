@@ -14,7 +14,7 @@ const Hero = () => {
       <h1 className="hidden">QR Code Generator by createxp</h1>
       <div className="flex flex-col justify-center items-center gap-6">
         <h2 className="font-krona text-center text-2xl md:text-3xl-krona lg:text-4xl-krona">
-          Create, Customize, and Track Your QR Codes Easily{" "}
+          Create, Customize, and <br /> Track Your QR Codes Easily{" "}
         </h2>
         <p className="text-lg text-center">
           From tracking to customization, our online tool has everything you
