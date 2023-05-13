@@ -8,7 +8,7 @@ import Link from "next/link";
 const Navbar = () => {
   const router = useRouter();
   const { selectedTab } = useScreen();
-  console.log("selectedTab", selectedTab);
+  // console.log("selectedTab", selectedTab);
 
   return (
     <div className="bg-neutral-100 fixed top-0 z-50 lg:px-40 px-4 w-full shadow">
