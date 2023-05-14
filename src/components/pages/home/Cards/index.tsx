@@ -23,7 +23,7 @@ const Cards = () => {
     // </Section>
     <Section className="justify-center items-center py-20">
       <h2 className="font-krona text-center text-2xl md:text-3xl-krona lg:text-4xl-krona">
-        Pricing made easy
+        Your Link, Your Code, Your Brand{" "}
       </h2>
       <div className="flex flex-col lg:flex-row gap-12 mt-16 justify-center">
         {cards.map((card, index) => (
